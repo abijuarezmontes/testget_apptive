@@ -1,0 +1,5 @@
+com\qaminds\pages\BasePage.class
+com\qaminds\pages\FormularioPage.class
+com\qaminds\coreappium\MyDriverAppium.class
+com\qaminds\pages\IntroductionPage.class
+com\qaminds\testget_apptive\App.class

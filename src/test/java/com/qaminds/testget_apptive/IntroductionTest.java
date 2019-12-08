@@ -4,44 +4,45 @@ import static org.testng.AssertJUnit.assertFalse;
 import static org.testng.AssertJUnit.assertTrue;
 import org.testng.annotations.Test;
 
-import com.qaminds.pages.FormularioPage;
+import com.qaminds.pages.BirthdayPage;
+import com.qaminds.pages.CreatePswPage;
+import com.qaminds.pages.GenderPage;
 import com.qaminds.pages.IntroductionPage;
+import com.qaminds.pages.PageJoinFB;
+import com.qaminds.pages.PageName;
+import com.qaminds.pages.PhonePage;
 
 public class IntroductionTest extends BaseTest {
 	
 	
-	@Test(testName = "Prueba Onboarding Apptive" /*, groups = {"group1"}, priority =1*/ )
 	public void validationTest() {
-		System.out.println("muestrame que sirves " +getProperty("get_apptive"));
-		System.out.println("Se hace una prueba ... "+myDriver);
+		System.out.println("validacion " + myDriver);		
 		IntroductionPage introductionPage = new IntroductionPage(myDriver);
-		//assertFalse(introductionPage.getTitleIntroduction());
-		assertTrue(introductionPage.getTitleIntroduction());
-		introductionPage.moveOnboarding();
+		introductionPage.selectButtonCreateAccount();
+		
+		PageJoinFB pageJoin = new PageJoinFB(myDriver);
+		assertTrue(pageJoin.BtnNext());
+		
+		PageName yourNamePage = new PageName(myDriver);
+		yourNamePage.insertFistName();
+		yourNamePage.insertLastName();
+		yourNamePage.clicBtnNext();
+		
+		PhonePage mobileNumberPage = new PhonePage(myDriver);
+		mobileNumberPage.insertNumber();
+		mobileNumberPage.clicBtnNext();
+		
+		BirthdayPage birthdayPage = new BirthdayPage(myDriver);
+		birthdayPage.insertMonth();
+		birthdayPage.insertDay();
+		birthdayPage.insertYear();
+		birthdayPage.clicBtnNext();
+		
+		GenderPage genderPage = new GenderPage(myDriver);
+		genderPage.clickBtnSex();
+		
+		CreatePswPage passwordPage = new CreatePswPage(myDriver);
+		passwordPage.insertPass();
+		passwordPage.clickRegistrar();
 	}
-	
-	@Test(groups = {"group2"}, priority = 3)
-	public void llenaFormularioTest() {
-		System.out.println("llena formulario... " +myDriver);
-		FormularioPage formulario = new FormularioPage (myDriver);
-		formulario.insertName();
-		formulario.insertHeigth();
-		formulario.insertWeigth();
-	}
-	
-	/*
-	@Test(groups = {"group2"}, priority = 3)
-	public void validationTitltIntroduction3() {
-		System.out.println("grupo 2, prioridad 3");
-	}
-	
-	@Test(groups = {"group2"}, priority = 1)
-	public void validationTitltIntroduction() {
-		System.out.println("grupo 2, prioridad 1");
-	}
-	
-	@Test(groups = {"group2"}, priority = 2)
-	public void validationTitltIntroduction2() {
-		System.out.println("grupo 2, prioridad 2");
-}*/
 }

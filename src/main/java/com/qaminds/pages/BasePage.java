@@ -19,9 +19,9 @@ public class BasePage {
 	private AndroidDriver<AndroidElement> driver;
 	
 	private final WebDriverWait wait;
-	//implicit: determinado tiempo de espera (10, 20, 30 seg)
-	//explicit: Espera que una condicion suceda 
-	//fluent: espere aunque mande un error de que todavia no aparece siga esperando
+	//implicit: es para determinado tiempo de espera (10, 20, 30 seg)
+	//explicit: es cuando espera que una condicion suceda 
+	//fluent: es para que espere aunque mande un error de que todavia no aparece siga esperando
 		
 	public BasePage(MyDriverAppium driver) {
 		this.wait = new WebDriverWait(driver.getDriver(), 10);

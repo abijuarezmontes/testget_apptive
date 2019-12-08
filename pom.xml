@@ -46,7 +46,7 @@
   
   <profiles>
 	<profile>
-	<id>appiumget_apptive</id>
+	<id>facebook</id>
 		<build>
 		 	<plugins>
 		   		<plugin>
